@@ -3,6 +3,8 @@ package com.example.animetrackerapp.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -33,11 +35,20 @@ class MainActivity : AppCompatActivity() {
 
         initRecyclerView()
 
-        viewModel.getTopAnime()
+        viewModel.state.observe(this) { state ->
+            updateUI(state)
+        }
+    }
 
-        viewModel.anime.observe(this) { animeList ->
-            binding.progress.visibility = GONE
-            adapter.updateData(animeList.data)
+    private fun updateUI(state: UiState) {
+        binding.progress.visibility = if (state.loading) VISIBLE else GONE
+
+        if (state.error != null) {
+            Toast.makeText(this, state.error, Toast.LENGTH_SHORT).show()
+        }
+
+        state.anime.let { animeResponse ->
+            adapter.updateData(animeResponse?.data)
         }
     }
 
