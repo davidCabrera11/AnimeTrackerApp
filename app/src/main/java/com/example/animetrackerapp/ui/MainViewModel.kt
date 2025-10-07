@@ -1,33 +1,31 @@
 package com.example.animetrackerapp.ui
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.animetrackerapp.model.AnimeRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val animeRepository: AnimeRepository) : ViewModel() {
 
-    private val _state = MutableLiveData<UiState>()
-    val state: LiveData<UiState> = _state
+    private val _state = MutableStateFlow(UiState())
+    val state: StateFlow<UiState> = _state.asStateFlow()
 
     init {
         getTopAnime()
     }
 
     fun getTopAnime() {
-        Log.d("VIEWMODEL", "getTopAnime() called")
-
         _state.value = UiState(loading = true)
 
         viewModelScope.launch {
             try {
-                val result = animeRepository.getTopAnime()
                 _state.value = UiState(loading = false)
-                _state.value = UiState(anime = result)
+                _state.value = UiState(anime = animeRepository.getTopAnime())
             } catch (e: Exception) {
                 _state.value = UiState(loading = false)
                 Log.e("API_ERROR", "Failed to fetch users", e)

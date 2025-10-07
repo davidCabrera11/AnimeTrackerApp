@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AnimeTrackerApp">
         <activity
             android:name=".ui.detail.AnimeDetailActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

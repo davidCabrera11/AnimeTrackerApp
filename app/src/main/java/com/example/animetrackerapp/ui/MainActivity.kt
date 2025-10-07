@@ -10,12 +10,16 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat.setOnApplyWindowInsetsListener
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.animetrackerapp.R
 import com.example.animetrackerapp.databinding.ActivityMainBinding
 import com.example.animetrackerapp.model.Anime
 import com.example.animetrackerapp.model.AnimeRepository
 import com.example.animetrackerapp.ui.detail.AnimeDetailActivity
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,8 +39,10 @@ class MainActivity : AppCompatActivity() {
 
         initRecyclerView()
 
-        viewModel.state.observe(this) { state ->
-            updateUI(state)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { updateUI(it) }
+            }
         }
     }
 

@@ -6,10 +6,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.bumptech.glide.Glide
 import com.example.animetrackerapp.R
 import com.example.animetrackerapp.databinding.ActivityAnimeDetailBinding
 import com.example.animetrackerapp.model.Anime
+import kotlinx.coroutines.launch
 
 
 class AnimeDetailActivity : AppCompatActivity() {
@@ -29,8 +33,10 @@ class AnimeDetailActivity : AppCompatActivity() {
 
         applyWindowInsets()
 
-        viewModel.state.observe(this) {
-            updateUI(it.anime)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.state.collect { updateUI(it.anime) }
+            }
         }
     }
 

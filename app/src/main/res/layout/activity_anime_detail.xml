@@ -17,7 +17,9 @@
             android:layout_height="250dp"
             app:contentScrim="?attr/colorPrimary"
             app:statusBarScrim="?attr/colorPrimaryVariant"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleTextColor="@android:color/white"
+            app:collapsedTitleTextColor="@android:color/white">
 
             <ImageView
                 android:id="@+id/anime_detail_image"
