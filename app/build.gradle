@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.android.safe.args)
 }
 
 android {
@@ -52,6 +53,7 @@ dependencies {
     implementation libs.androidx.constraintlayout
     implementation libs.androidx.lifecycle.viewmodel.ktx
     implementation libs.androidx.recyclerview
+    implementation libs.androidx.navigation.fragment
 
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

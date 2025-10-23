@@ -35,6 +35,8 @@
                 android:id="@+id/anime_detail_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:fitsSystemWindows="true"
+                app:navigationIcon="@drawable/ic_arrow_back"
                 app:title="Anime name" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>

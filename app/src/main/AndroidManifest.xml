@@ -13,10 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AnimeTrackerApp">
         <activity
-            android:name=".ui.detail.AnimeDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.NavHostActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
