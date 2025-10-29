@@ -13,6 +13,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.animetrackerapp.R
+import com.example.animetrackerapp.UiEvent
 import com.example.animetrackerapp.databinding.FragmentMainBinding
 import com.example.animetrackerapp.model.Anime
 import com.example.animetrackerapp.model.AnimeRepository
@@ -35,9 +36,26 @@ class MainActivity : Fragment(R.layout.fragment_main) {
             animeListRecyclerView.adapter = adapter
         }
 
+        binding.collectUiState()
+        collectUiEvents()
+    }
+
+    private fun FragmentMainBinding.collectUiState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.state.collect { binding.updateUI(it) }
+                viewModel.state.collect { updateUI(it) }
+            }
+        }
+    }
+
+    private fun collectUiEvents() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.events.collect { uiEvent ->
+                    when (uiEvent) {
+                        is UiEvent.NavigateTo -> navigateTo(uiEvent.anime)
+                    }
+                }
             }
         }
     }
@@ -45,7 +63,6 @@ class MainActivity : Fragment(R.layout.fragment_main) {
     private fun FragmentMainBinding.updateUI(state: UiState) {
         progress.visibility = if (state.loading) VISIBLE else GONE
         state.anime?.data?.let(adapter::submitList)
-        state.navigateTo?.let(::navigateTo)
 
         if (state.error != null) {
             Toast.makeText(requireContext(), state.error, Toast.LENGTH_SHORT).show()

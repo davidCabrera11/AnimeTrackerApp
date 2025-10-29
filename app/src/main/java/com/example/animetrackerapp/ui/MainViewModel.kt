@@ -4,17 +4,23 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.animetrackerapp.UiEvent
 import com.example.animetrackerapp.model.Anime
 import com.example.animetrackerapp.model.AnimeRepository
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val animeRepository: AnimeRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(UiState())
     val state: StateFlow<UiState> = _state.asStateFlow()
+
+    private val _events = Channel<UiEvent>()
+    val events = _events.receiveAsFlow()
 
     init {
         getTopAnime()
@@ -35,7 +41,9 @@ class MainViewModel(private val animeRepository: AnimeRepository) : ViewModel() 
     }
 
     fun onAnimeClicked(anime: Anime) {
-        _state.value = _state.value.copy(navigateTo = anime)
+        viewModelScope.launch {
+            _events.send(UiEvent.NavigateTo(anime))
+        }
     }
 }
 
