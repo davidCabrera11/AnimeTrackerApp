@@ -1,4 +1,4 @@
-package com.example.animetrackerapp.ui
+package com.example.animetrackerapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View

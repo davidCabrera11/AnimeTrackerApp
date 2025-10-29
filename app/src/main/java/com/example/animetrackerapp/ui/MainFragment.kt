@@ -14,6 +14,7 @@ import com.example.animetrackerapp.R
 import com.example.animetrackerapp.databinding.FragmentMainBinding
 import com.example.animetrackerapp.model.Anime
 import com.example.animetrackerapp.model.AnimeRepository
+import com.example.animetrackerapp.ui.adapter.AnimeAdapter
 import kotlinx.coroutines.launch
 
 class MainActivity : Fragment(R.layout.fragment_main) {
