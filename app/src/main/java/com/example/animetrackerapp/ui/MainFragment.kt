@@ -2,6 +2,8 @@ package com.example.animetrackerapp.ui
 
 import android.os.Bundle
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -14,7 +16,7 @@ import com.example.animetrackerapp.R
 import com.example.animetrackerapp.databinding.FragmentMainBinding
 import com.example.animetrackerapp.model.Anime
 import com.example.animetrackerapp.model.AnimeRepository
-import com.example.animetrackerapp.ui.adapter.AnimeAdapter
+import com.example.animetrackerapp.ui.adapter.AnimeListAdapter
 import kotlinx.coroutines.launch
 
 class MainActivity : Fragment(R.layout.fragment_main) {
@@ -23,43 +25,34 @@ class MainActivity : Fragment(R.layout.fragment_main) {
         MainViewModelFactory(AnimeRepository())
     }
 
-    private lateinit var adapter: AnimeAdapter
+    private val adapter = AnimeListAdapter { viewModel.onAnimeClicked(it) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val binding = FragmentMainBinding.bind(view)
 
-        binding.initRecyclerView()
+        val binding = FragmentMainBinding.bind(view).apply {
+            animeListRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+            animeListRecyclerView.adapter = adapter
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect { binding.updateUI(it) }
             }
         }
-
     }
 
     private fun FragmentMainBinding.updateUI(state: UiState) {
-        progress.visibility = if (state.loading) View.VISIBLE else View.GONE
+        progress.visibility = if (state.loading) VISIBLE else GONE
+        state.anime?.data?.let(adapter::submitList)
+        state.navigateTo?.let(::navigateTo)
 
         if (state.error != null) {
             Toast.makeText(requireContext(), state.error, Toast.LENGTH_SHORT).show()
         }
-
-        state.anime.let { animeResponse ->
-            adapter.updateData(animeResponse?.data)
-        }
     }
 
-    private fun FragmentMainBinding.initRecyclerView() {
-        adapter = AnimeAdapter(emptyList()) { anime ->
-            onItemSelected(anime)
-        }
-        animeListRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        animeListRecyclerView.adapter = adapter
-    }
-
-    private fun onItemSelected(anime: Anime) {
+    private fun navigateTo(anime: Anime) {
         val navAction = MainActivityDirections.actionMainToAnimeDetail(anime)
         findNavController().navigate(directions = navAction)
     }

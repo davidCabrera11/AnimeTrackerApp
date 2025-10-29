@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.animetrackerapp.model.Anime
 import com.example.animetrackerapp.model.AnimeRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -31,6 +32,10 @@ class MainViewModel(private val animeRepository: AnimeRepository) : ViewModel() 
                 Log.e("API_ERROR", "Failed to fetch users", e)
             }
         }
+    }
+
+    fun onAnimeClicked(anime: Anime) {
+        _state.value = _state.value.copy(navigateTo = anime)
     }
 }
 
