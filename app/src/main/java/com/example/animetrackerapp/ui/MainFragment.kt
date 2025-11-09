@@ -19,7 +19,7 @@ import com.example.animetrackerapp.model.AnimeRepository
 import com.example.animetrackerapp.ui.adapter.AnimeListAdapter
 import kotlinx.coroutines.launch
 
-class MainActivity : Fragment(R.layout.fragment_main) {
+class MainFragment : Fragment(R.layout.fragment_main) {
 
     private val viewModel: MainViewModel by viewModels {
         MainViewModelFactory(AnimeRepository())
@@ -69,7 +69,7 @@ class MainActivity : Fragment(R.layout.fragment_main) {
     }
 
     private fun navigateTo(anime: Anime) {
-        val navAction = MainActivityDirections.actionMainToAnimeDetail(anime)
+        val navAction = MainFragmentDirections.actionMainToAnimeDetail(anime)
         findNavController().navigate(directions = navAction)
     }
 }
