@@ -1,4 +1,4 @@
-package com.example.animetrackerapp
+package com.example.animetrackerapp.ui
 
 import com.example.animetrackerapp.model.Anime
 
