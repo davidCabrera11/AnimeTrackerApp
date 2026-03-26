@@ -43,7 +43,6 @@ class AnimeListAdapter(
                 .into(binding.imageAnime)
 
             tvAnimeTitle.text = anime.title
-            tvAnimeYear.text = anime.year.toString()
             tvAnimeScore.text = anime.score.toString()
         }
     }
