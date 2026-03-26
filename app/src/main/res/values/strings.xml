@@ -1,5 +1,4 @@
 <resources>
     <string name="app_name">Anime Tracker App</string>
     <string name="anime_image_content_description">Anime image</string>
-    <string name="anime_score">Score: %.1f</string>
 </resources>

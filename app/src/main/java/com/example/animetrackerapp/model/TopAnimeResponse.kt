@@ -26,6 +26,6 @@ data class Images(
 
 @Parcelize
 data class Jpg(
-    @SerializedName("image_url")
+    @SerializedName("large_image_url")
     val imageUrl: String
 ) : Parcelable

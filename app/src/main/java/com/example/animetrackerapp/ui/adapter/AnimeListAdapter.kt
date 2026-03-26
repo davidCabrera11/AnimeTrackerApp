@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.animetrackerapp.R
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.animetrackerapp.databinding.ItemAnimeBinding
 import com.example.animetrackerapp.model.Anime
 
@@ -37,13 +37,14 @@ class AnimeListAdapter(
         private val binding = ItemAnimeBinding.bind(view)
 
         fun bind(anime: Anime) = with(binding) {
-            Glide.with(binding.animeImage.context)
+            Glide.with(binding.imageAnime.context)
                 .load(anime.images.jpg.imageUrl)
-                .into(binding.animeImage)
+                .transform(RoundedCorners(24))
+                .into(binding.imageAnime)
 
-            animeTitle.text = anime.title
-            animeYear.text = anime.year.toString()
-            animeScore.text = itemView.context.getString(R.string.anime_score, anime.score)
+            tvAnimeTitle.text = anime.title
+            tvAnimeYear.text = anime.year.toString()
+            tvAnimeScore.text = anime.score.toString()
         }
     }
 }
