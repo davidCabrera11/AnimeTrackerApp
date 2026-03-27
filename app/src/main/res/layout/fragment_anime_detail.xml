@@ -9,37 +9,16 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/anime_detail_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:contentScrim="?attr/colorPrimary"
-            app:statusBarScrim="?attr/colorPrimaryVariant"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:expandedTitleTextColor="@android:color/white"
-            app:collapsedTitleTextColor="@android:color/white">
-
-            <ImageView
-                android:id="@+id/anime_detail_image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/anime_image_content_description"
-                android:fitsSystemWindows="true"
-                android:scaleType="centerCrop"
-                app:layout_collapseMode="pin"
-                tools:src="@mipmap/ic_launcher" />
-
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/anime_detail_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:fitsSystemWindows="true"
-                app:navigationIcon="@drawable/ic_arrow_back"
-                app:title="Anime name" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:title="Anime Details"
+            app:titleTextColor="@color/primary"
+            app:titleTextAppearance="@style/ToolbarTitleStyle" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -31,7 +31,7 @@
         android:background="@drawable/bg_rounded_textview"
         android:clickable="false"
         android:paddingTop="5dp"
-        android:text="# %d"
+        android:text="#%d"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:cornerRadius="16dp"
