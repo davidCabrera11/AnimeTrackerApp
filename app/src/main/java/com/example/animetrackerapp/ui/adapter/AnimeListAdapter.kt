@@ -29,20 +29,23 @@ class AnimeListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val anime = getItem(position)
-        holder.bind(anime)
+        holder.bind(anime, position)
         holder.itemView.setOnClickListener { listener(anime) }
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemAnimeBinding.bind(view)
 
-        fun bind(anime: Anime) = with(binding) {
+        fun bind(anime: Anime, position: Int) = with(binding) {
             Glide.with(binding.imageAnime.context)
                 .load(anime.images.jpg.imageUrl)
                 .transform(RoundedCorners(24))
                 .into(binding.imageAnime)
 
             tvAnimeTitle.text = anime.title
+            tvAnimeRank.text = String.format("#%d", position + 1)
+            tvAnimeType.text = String.format("%s (%s eps)", anime.type, anime.episodes)
+            tvAnimeAiredDates.text = anime.aired.datesAired
             tvAnimeScore.text = anime.score.toString()
         }
     }

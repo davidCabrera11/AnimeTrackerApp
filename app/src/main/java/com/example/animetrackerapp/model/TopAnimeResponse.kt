@@ -13,10 +13,19 @@ data class Anime(
     @SerializedName("mal_id")
     val malId: Int,
     val title: String,
+    val type: String,
+    val episodes: Int,
+    val aired: Aired,
     val images: Images,
     val score: Double,
-    val year: Int?,
+    val rank: Int,
     val synopsis: String
+) : Parcelable
+
+@Parcelize
+data class Aired(
+    @SerializedName("string")
+    val datesAired: String
 ) : Parcelable
 
 @Parcelize
