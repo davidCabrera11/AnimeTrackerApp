@@ -60,7 +60,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun FragmentMainBinding.updateUI(state: UiState) {
-        progress.visibility = if (state.loading) VISIBLE else GONE
+        progressBar.visibility = if (state.loading) VISIBLE else GONE
         state.anime?.data?.let(adapter::submitList)
 
         if (state.error != null) {
