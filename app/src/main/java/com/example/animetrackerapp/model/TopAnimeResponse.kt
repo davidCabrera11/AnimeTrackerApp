@@ -15,10 +15,14 @@ data class Anime(
     val title: String,
     val type: String,
     val episodes: Int,
+    val status: String,
     val aired: Aired,
+    val rating: String,
     val images: Images,
     val score: Double,
     val rank: Int,
+    val popularity: Int,
+    val studios: List<Studios>,
     val synopsis: String
 ) : Parcelable
 
@@ -37,4 +41,9 @@ data class Images(
 data class Jpg(
     @SerializedName("large_image_url")
     val imageUrl: String
+) : Parcelable
+
+@Parcelize
+data class Studios(
+    val name: String
 ) : Parcelable

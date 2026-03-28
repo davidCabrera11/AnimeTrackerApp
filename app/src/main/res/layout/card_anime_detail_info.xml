@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_anime_detail_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#F1F3FD"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="24dp">
+
+        <TextView
+            android:id="@+id/tv_details_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/manrope_bold"
+            android:text="Details"
+            android:textColor="#181C22"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_studio_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Studio"
+            android:textColor="#444651"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/tv_studio_value"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_details_label" />
+
+        <TextView
+            android:id="@+id/tv_studio_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:textAlignment="textEnd"
+            android:textColor="#0D3989"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_studio_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_studio_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_studio_label"
+            tools:text="Gainax" />
+
+        <TextView
+            android:id="@+id/tv_episodes_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Episodes"
+            app:layout_constraintEnd_toStartOf="@+id/tv_episodes_value"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_studio_label" />
+
+        <TextView
+            android:id="@+id/tv_episodes_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_episodes_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_episodes_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_episodes_label"
+            tools:text="26" />
+
+        <TextView
+            android:id="@+id/tv_rating_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Rating"
+            app:layout_constraintEnd_toStartOf="@+id/tv_rating_value"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_episodes_label" />
+
+        <TextView
+            android:id="@+id/tv_rating_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rating_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_rating_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_rating_label"
+            tools:text="PG-13" />
+
+        <TextView
+            android:id="@+id/tv_status_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Status"
+            app:layout_constraintEnd_toStartOf="@+id/tv_status_value"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rating_label" />
+
+        <TextView
+            android:id="@+id/tv_status_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            android:textColor="#B81648"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_status_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_status_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_status_label"
+            tools:text="Finished Airing" />
+
+        <TextView
+            android:id="@+id/tv_aired_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Aired"
+            app:layout_constraintEnd_toStartOf="@+id/tv_aired_value"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_status_label" />
+
+        <TextView
+            android:id="@+id/tv_aired_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:textAlignment="textEnd"
+            android:textSize="14sp"
+            android:textColor="#181C22"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_aired_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_aired_label"
+            app:layout_constraintTop_toTopOf="@+id/tv_aired_label"
+            tools:text="Oct 1995 to Mar 1996" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -17,33 +17,222 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
             app:title="Anime Details"
-            app:titleTextColor="@color/primary"
-            app:titleTextAppearance="@style/ToolbarTitleStyle" />
+            app:titleTextAppearance="@style/ToolbarTitleStyle"
+            app:titleTextColor="@color/primary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:transitionGroup="true"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+            <ImageView
+                android:id="@+id/img_anime_detail"
+                android:layout_width="0dp"
+                android:layout_height="434dp"
+                android:contentDescription="Anime Image"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
-                android:id="@+id/anime_synopsis"
+                android:id="@+id/tv_anime_detail_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                tools:text="Synopsis" />
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/manrope_extrabold"
+                android:textSize="36sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/img_anime_detail"
+                tools:text="NEON GENESIS EVANGELION" />
 
-        </LinearLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_anime_detail_rank"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                app:cardElevation="3dp"
+                app:layout_constraintEnd_toStartOf="@+id/card_anime_detail_score"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_anime_detail_title"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F1F3FD"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_rank_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="RANKED"
+                        android:textColor="#444651"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_rank_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/manrope_extrabold"
+                        android:textColor="#0D3989"
+                        android:textSize="24sp"
+                        android:maxLines="1"
+                        app:autoSizeStepGranularity="1sp"
+                        app:autoSizeTextType="uniform"
+                        tools:text="#1" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_anime_detail_score"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:background="#F1F3FD"
+                app:cardElevation="3dp"
+                app:layout_constraintEnd_toStartOf="@+id/card_anime_detail_popularity"
+                app:layout_constraintStart_toEndOf="@+id/card_anime_detail_rank"
+                app:layout_constraintTop_toBottomOf="@+id/tv_anime_detail_title"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F1F3FD"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_score_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="SCORE"
+                        android:textColor="#444651"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_score_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/manrope_extrabold"
+                        android:text="9.24"
+                        android:textColor="#B81648"
+                        android:textSize="24sp" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_anime_detail_popularity"
+                android:layout_width="110dp"
+                android:layout_height="90dp"
+                android:layout_marginTop="16dp"
+                android:background="#F1F3FD"
+                app:cardElevation="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/card_anime_detail_score"
+                app:layout_constraintTop_toBottomOf="@+id/tv_anime_detail_title"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F1F3FD"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_popularity_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/inter_medium"
+                        android:text="POPULARITY"
+                        android:textColor="#444651"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_popularity_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/manrope_extrabold"
+                        android:maxLines="1"
+                        android:textColor="#533256"
+                        android:textSize="24sp"
+                        app:autoSizeStepGranularity="1sp"
+                        app:autoSizeTextType="uniform"
+                        tools:text="#10" />
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_anime_detail_favorite"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:text="Add to Favorites"
+                app:backgroundTint="@color/primary"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/ic_favorite_filled"
+                app:iconGravity="textStart"
+                app:iconTint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_anime_detail_score" />
+
+            <TextView
+                android:id="@+id/tv_anime_detail_synopsis_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/manrope_bold"
+                android:text="Synopsis"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_anime_detail_favorite" />
+
+            <TextView
+                android:id="@+id/tv_anime_detail_synopsis_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/inter"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_anime_detail_synopsis_title"
+                tools:text="In the year 2015, the world stands on the brink of destruction. Humanity's last hope lies in the hands of Nerv, a special agency under the United Nations, and their Evangelions, giant machines capable of defeating the Angels who herald Earth's ruin." />
+
+            <include
+                android:id="@+id/card_anime_detail_info"
+                layout="@layout/card_anime_detail_info"
+                android:layout_width="match_parent"
+                android:layout_height="316dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_anime_detail_synopsis_content" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
