@@ -5,4 +5,13 @@
     <color name="primary">#2E51A2</color>
     <color name="secondary">#CC2955</color>
     <color name="background">#F9F9FF</color>
+
+    <color name="card_background">#F1F3FD</color>
+    <color name="chip_grey_background">#E6E8F1</color>
+    <color name="blue_text">#0D3989</color>
+    <color name="black_header_text">#181C22</color>
+    <color name="dark_grey_text">#444651</color>
+    <color name="grey_text">#747783</color>
+    <color name="red_text">#B81648</color>
+    <color name="purple_text">#533256</color>
 </resources>

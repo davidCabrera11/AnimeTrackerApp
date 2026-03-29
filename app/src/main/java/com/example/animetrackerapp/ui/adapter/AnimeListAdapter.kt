@@ -37,14 +37,14 @@ class AnimeListAdapter(
         private val binding = ItemAnimeBinding.bind(view)
 
         fun bind(anime: Anime, position: Int) = with(binding) {
-            Glide.with(binding.imageAnime.context)
+            Glide.with(binding.imgAnimePortrait.context)
                 .load(anime.images.jpg.imageUrl)
                 .transform(RoundedCorners(24))
-                .into(binding.imageAnime)
+                .into(binding.imgAnimePortrait)
 
             tvAnimeTitle.text = anime.title
             tvAnimeRank.text = String.format("#%d", position + 1)
-            tvAnimeType.text = String.format("%s (%s eps)", anime.type, anime.episodes)
+            tvAnimeTypeEpisode.text = String.format("%s (%s eps)", anime.type, anime.episodes)
             tvAnimeAiredDates.text = anime.aired.datesAired
             tvAnimeScore.text = anime.score.toString()
         }

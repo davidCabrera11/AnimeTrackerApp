@@ -1,4 +1,38 @@
 <resources>
     <string name="app_name">Anime Tracker App</string>
     <string name="anime_image_content_description">Anime image</string>
+
+    <!-- Fragment Main   -->
+    <string name="global_rankings">GLOBAL RANKINGS</string>
+    <string name="top_anime_series">Top Anime Series</string>
+    <string name="top_anime_description">Explore the highest-rated animated masterpieces of all time, curated by millions of fans worldwide.</string>
+    <string name="search_anime">Search anime…</string>
+
+    <!-- Fragment Anime Detail   -->
+    <string name="top_rated">Top Rated</string>
+    <string name="score">SCORE</string>
+    <string name="ranked">RANKED</string>
+    <string name="popularity">POPULARITY</string>
+    <string name="add_to_favorites">Add to Favorites</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="place_holder_synopsis">In the year 2015, the world stands on the brink of destruction. Humanity\'s last hope lies in the hands of Nerv, a special agency under the United Nations, and their Evangelions, giant machines capable of defeating the Angels who herald Earth\'s ruin.</string>
+
+    <!-- Fragment Card Anime Detail Info   -->
+    <string name="details">Details</string>
+    <string name="studio">Studio</string>
+    <string name="episodes">Episodes</string>
+    <string name="rating">Rating</string>
+    <string name="status">Status</string>
+    <string name="aired">Aired</string>
+
+    <!-- Item Anime   -->
+    <string name="anime_image_portrait">Anime Image Portrait</string>
+    <string name="anime_rank_value">#%d</string>
+    <string name="score_star_icon">Score Star Icon</string>
+    <string name="tv_icon">TV Icon</string>
+    <string name="anime_type_episode_count">%s (%s eps)</string>
+    <string name="calendar_icon">Calendar Icon</string>
+    <string name="favorites_icon">Favorites Icon</string>
+
+
 </resources>

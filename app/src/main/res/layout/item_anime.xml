@@ -10,13 +10,13 @@
     android:paddingBottom="8dp">
 
     <ImageView
-        android:id="@+id/image_anime"
+        android:id="@+id/img_anime_portrait"
         android:layout_width="0dp"
         android:layout_height="434dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:contentDescription="Anime Image"
+        android:contentDescription="@string/anime_image_portrait"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,12 +31,12 @@
         android:background="@drawable/bg_rounded_textview"
         android:clickable="false"
         android:paddingTop="5dp"
-        android:text="#%d"
+        android:text="@string/anime_rank_value"
         android:textAlignment="center"
         android:textColor="@color/white"
         app:cornerRadius="16dp"
-        app:layout_constraintStart_toStartOf="@+id/image_anime"
-        app:layout_constraintTop_toTopOf="@+id/image_anime"
+        app:layout_constraintStart_toStartOf="@+id/img_anime_portrait"
+        app:layout_constraintTop_toTopOf="@+id/img_anime_portrait"
         tools:text="#1" />
 
 
@@ -47,17 +47,17 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/manrope_bold"
-        android:textColor="#181C22"
+        android:textColor="@color/black_header_text"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_anime"
+        app:layout_constraintTop_toBottomOf="@id/img_anime_portrait"
         tools:text="Fullmetal Alchemist:Brotherhood" />
 
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginEnd="8dp"
-        android:contentDescription="score star"
+        android:contentDescription="@string/score_star_icon"
         android:src="@drawable/ic_star"
         app:layout_constraintBottom_toBottomOf="@+id/tv_anime_score"
         app:layout_constraintEnd_toStartOf="@+id/tv_anime_score"
@@ -70,7 +70,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/manrope_extrabold"
         android:textAlignment="textEnd"
-        android:textColor="#0D3989"
+        android:textColor="@color/blue_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_anime_title"
@@ -84,7 +84,7 @@
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/inter_bold"
         android:textAlignment="center"
-        android:textColor="#747783"
+        android:textColor="@color/grey_text"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_anime_score"
@@ -95,20 +95,21 @@
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginStart="16dp"
-        android:contentDescription="score star"
+        android:contentDescription="@string/tv_icon"
         android:src="@drawable/ic_tv"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_anime_type"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_anime_type_episode"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_anime_type" />
+        app:layout_constraintTop_toTopOf="@+id/tv_anime_type_episode" />
 
     <TextView
-        android:id="@+id/tv_anime_type"
+        android:id="@+id/tv_anime_type_episode"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/inter_medium"
-        android:text="%s (%s eps)"
+        android:text="@string/anime_type_episode_count"
+        android:textColor="@color/dark_grey_text"
         app:layout_constraintStart_toEndOf="@+id/img_tv"
         app:layout_constraintTop_toBottomOf="@+id/tv_anime_title"
         tools:text="TV (64 eps)" />
@@ -118,7 +119,7 @@
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginStart="16dp"
-        android:contentDescription="score star"
+        android:contentDescription="@string/calendar_icon"
         android:src="@drawable/ic_calendar"
         app:layout_constraintBottom_toBottomOf="@+id/tv_anime_aired_dates"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,9 +133,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:fontFamily="@font/inter_medium"
-        android:text="Apr 2009 - Jul 2010"
+        android:textColor="@color/dark_grey_text"
         app:layout_constraintStart_toEndOf="@+id/img_calendar"
-        app:layout_constraintTop_toBottomOf="@+id/tv_anime_type"
+        app:layout_constraintTop_toBottomOf="@+id/tv_anime_type_episode"
         tools:text="Apr 2009 - Jul 2010" />
 
     <ImageButton
@@ -143,10 +144,10 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:contentDescription="@string/favorites_icon"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_favorite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_anime_global_score" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,8 +31,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentMainBinding.bind(view).apply {
-            animeListRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            animeListRecyclerView.adapter = adapter
+            rvAnimeList.layoutManager = LinearLayoutManager(requireContext())
+            rvAnimeList.adapter = adapter
         }
 
         binding.collectUiState()
