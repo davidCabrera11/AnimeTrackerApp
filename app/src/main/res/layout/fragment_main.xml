@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:fitsSystemWindows="true"
     tools:context=".ui.MainFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -28,7 +27,7 @@
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/global_rankings"
                 android:textColor="@color/red_text"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -76,8 +75,9 @@
                 android:drawablePadding="8dp"
                 android:hint="@string/search_anime"
                 android:inputType="text"
-                android:paddingStart="10dp"
+                android:paddingHorizontal="10dp"
                 android:textColorHint="@color/grey_text"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_top_anime_description" />
